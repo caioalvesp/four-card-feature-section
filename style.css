@@ -26,6 +26,10 @@ body {
   padding-right: 1rem;
 }
 
+h2, p {
+  margin: 0;
+}
+
 h1 {
   font-weight: 200;
 }
@@ -45,19 +49,98 @@ h1, h1 span, .description {
 .description {
   color: var(--very-dark-blue);
   font-weight: 400;
+  margin-bottom: 5rem;
+  font-size: 1.1rem;
+}
+
+.cards .card:nth-child(1) {
+  border-top: .3rem solid var(--cyan);
+}
+
+.cards .card:nth-child(2) {
+  border-top: .3rem solid var(--red);
+}
+
+.cards .card:nth-child(3) {
+  border-top: .3rem solid var(--orange);
+}
+
+.cards .card:nth-child(4) {
+  border-top: .3rem solid var(--blue);
+  margin-bottom: 1.5rem;
 }
 
 .card {
   background-color: white;
   border-radius: .4rem;
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
-  padding: 1rem;
-  border-top: .3rem solid var(--cyan);
+  padding: 2rem;  
+  display: flex;
+  flex-direction: column;
 }
 
 .card + .card {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card--title {
+  padding-bottom: .5rem;
+}
+
+.card--description {
+  padding-bottom: 3rem;
+}
+
+.card img {
+  max-width: 25%;
+  align-self: flex-end;
 }
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media (min-width: 1280px) {
+  h1, h1 span {
+    font-size: 3rem;
+    line-height: 4.5rem;
+  }
+
+  .description {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-areas: 
+    'supervisor team calculator'
+    'supervisor karma calculator';
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem 5rem;
+    justify-content: center;
+  }
+  
+  .cards .card {
+    width: 27rem;
+  }
+
+  .cards .card:nth-child(1) {
+    grid-area: supervisor;
+    align-self: center;
+  }
+
+  .cards .card:nth-child(2) {
+    grid-area: team;
+  }
+
+  .cards .card:nth-child(3) {
+    grid-area: karma;
+    margin: 0;
+  }
+
+  .cards .card:nth-child(4) {
+    grid-area: calculator;
+    align-self: center;
+  }
+}
